@@ -1,5 +1,7 @@
 package Programa;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.Nullable;
 import utilitarios.Utils;
 
 public class Conta {
@@ -9,7 +11,8 @@ public class Conta {
     private int numeroConta;
     private Pessoa pessoa;
     private Double saldo = 0.0;
-    private Double getsaldo() {
+    @Contract(pure = true)
+    private @Nullable Double getsaldo() {
         return null;
     }
 
