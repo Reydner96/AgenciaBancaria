@@ -1,4 +1,4 @@
-package Programa;
+package app;
 
 public class Pessoa {
 

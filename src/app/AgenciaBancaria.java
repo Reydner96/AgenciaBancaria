@@ -1,4 +1,4 @@
-package Programa;
+package app;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -9,23 +9,23 @@ public class AgenciaBancaria {
     static ArrayList<Conta> contasBancarias;
 
     public static void main(String[] args) {
-        contasBancarias = new ArrayList<>();
+        contasBancarias = new ArrayList<Conta>();
         operacoes();
     }
 
     public static void operacoes() {
 
         System.out.println("--------------------------------------------------");
-        System.out.println("------------Bem vindos a nossa Agência------------");
+        System.out.println("------------Bem vindos a nossa Agencia------------");
         System.out.println("--------------------------------------------------");
-        System.out.println("*** Selecione uma operação que deseja Realizar ***");
+        System.out.println("*** Selecione uma operacao que deseja Realizar ***");
         System.out.println("--------------------------------------------------");
-        System.out.println("|     Opção 1 - Criar Conta     |");
-        System.out.println("|     Opção 2 - Depositar       |");
-        System.out.println("|     Opção 3 - Sacar           |");
-        System.out.println("|     Opção 4 - Transferir      |");
-        System.out.println("|     Opção 5 - Listar Contas   |");
-        System.out.println("|     Opção 6 - Sair            |");
+        System.out.println("|     Opcao 1 - Criar Conta     |");
+        System.out.println("|     Opcao 2 - Depositar       |");
+        System.out.println("|     Opcao 3 - Sacar           |");
+        System.out.println("|     Opcao 4 - Transferir      |");
+        System.out.println("|     Opcao 5 - Listar Contas   |");
+        System.out.println("|     Opcao 6 - Sair            |");
 
         int operacao = input.nextInt();
 
@@ -45,11 +45,11 @@ public class AgenciaBancaria {
                 listarContas();
                 break;
             case 6:
-                System.out.println("Obrigado por usar nossos serviços");
+                System.out.println("Obrigado por usar nossos servicos");
                 System.exit(0);
 
             default:
-                System.out.println("Opção Inválida");
+                System.out.println("Opcao Invalida");
                 operacoes();
                 break;
         }
@@ -115,9 +115,9 @@ public class AgenciaBancaria {
             System.out.println("Qual o valor deseja sacar? ");
             Double valorSacar = input.nextDouble();
             conta.sacar(valorSacar);
-            // System.out.println("Valor sacado com sucesso! ");
+            System.out.println("Valor sacado com sucesso! ");
         }else {
-            System.out.println("A conta não foi encontrada! ");
+            System.out.println("A conta nao foi encontrada! ");
         }
         operacoes();
     }
@@ -129,7 +129,7 @@ public class AgenciaBancaria {
         Conta contaRemetente = encontrarConta(numeroContaRemetente);
 
         if(contaRemetente != null) {
-            System.out.println("Numero da conta do destinatário: ");
+            System.out.println("Numero da conta do destinatario: ");
             int numeroContaDestinatario = input.nextInt();
 
             Conta contaDestinatario = encontrarConta(numeroContaDestinatario);
@@ -140,10 +140,10 @@ public class AgenciaBancaria {
 
                 contaRemetente.transferir(contaDestinatario, valor);
             }else {
-                System.out.println("A conta para depósito não foi encontrada");
+                System.out.println("A conta para deposito nao foi encontrada");
             }
         }else {
-            System.out.println("Conta para transferencia não encontrada");
+            System.out.println("Conta para transferencia nao encontrada");
         }
         operacoes();
     }
@@ -154,7 +154,7 @@ public class AgenciaBancaria {
                 System.out.println(conta);
             }
             }else {
-            System.out.println("Não há contas cadastradas");
+            System.out.println("Nao ha contas cadastradas");
         }
         operacoes();
     }

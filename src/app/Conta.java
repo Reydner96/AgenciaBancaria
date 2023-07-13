@@ -1,7 +1,5 @@
-package Programa;
+package app;
 
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.Nullable;
 import utilitarios.Utils;
 
 public class Conta {
@@ -11,11 +9,8 @@ public class Conta {
     private int numeroConta;
     private Pessoa pessoa;
     private Double saldo = 0.0;
-    @Contract(pure = true)
-    private @Nullable Double getsaldo() {
-        return null;
-    }
-
+    
+    
     public Conta( Pessoa pessoa) {
         this.numeroConta = contadorDeContas;
         this.pessoa = pessoa;
@@ -48,11 +43,11 @@ public class Conta {
 
     public String toString() {
         return "\nNúmero da Conta: " + this.getNumeroConta() +
-                "\nNome: " + this.pessoa.getNome() +
-                "\nCPF: " + this.pessoa.getCpf() +
-                "\nEmail: " + this.pessoa.getEmail() +
-                "\nSaldo: " + Utils.doubleToString(this.getsaldo()) +
-                "\n";
+               "\nNome: " + this.pessoa.getNome() +
+               "\nCPF: " + this.pessoa.getCpf() +
+               "\nEmail: " + this.pessoa.getEmail() +
+               "\nSaldo: " + Utils.doubleToString(this.getSaldo()) +
+               "\n";
     }
 
 
@@ -66,8 +61,8 @@ public class Conta {
     }
 
     public void sacar(Double valor) {
-        if(valor > 0 && getsaldo() >= valor) {
-            setSaldo(getsaldo() - valor);
+        if(valor > 0 && this.getSaldo() >= valor) {
+            setSaldo(getSaldo() - valor);
             System.out.println("O saque foi realizado com sucesso!");
         } else {
             System.out.println("Não foi possivel realizar o saque");
@@ -75,8 +70,8 @@ public class Conta {
     }
 
     public void transferir(Conta contaParaDeposito, Double valor) {
-        if(valor > 0 && this.getsaldo() >= valor) {
-            setSaldo(getsaldo() - valor);
+        if(valor > 0 && this.getSaldo() >= valor) {
+            setSaldo(getSaldo() - valor);
 
             contaParaDeposito.saldo = contaParaDeposito.getSaldo() + valor;
             System.out.println("Transferencia realizada com sucesso");
